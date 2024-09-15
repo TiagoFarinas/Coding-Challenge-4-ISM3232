@@ -23,7 +23,7 @@ const Inventory =[
 ] //This array contains 5 objects that represent the products and each product information
 
 //Task 2-Create a Function to Display Product Details
-function displayProductDetails(product){
+function displayProductDetails(Inventory,product){
     var Stock_status= product.quantity>=product.lowStockLevel?"In Stock":"Low Stock";
     console.log(`Product Name: ${product.name}`);
     console.log(`Price: $${product.price}`);
@@ -49,4 +49,10 @@ function updateStock(product, UnitsSold){
         if (product.name<=product.lowStockLevel){
             console.log(`${product.name} is low on stock`)
         }})};
+
+//Task 5-Create a Function to Calculate Total Inventory Value
+function calculateInventoryValue(Inventory){
+    const totalValue = Inventory.reduce((acc,product) => acc+(product.price *product.quantity),0);
+    return totalValue};
+
 
